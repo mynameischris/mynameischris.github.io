@@ -16,45 +16,53 @@
         
         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-        <a class="navbar-brand" href="#">
-      <img src="logo_black_white.svg" height="30" class="d-inline-block align-top" alt="">
-      <strong>market</strong>
+            <a class="navbar-brand" href="#">
+                <img src="logo_black_white.svg" height="30" class="d-inline-block align-top" alt="">
+                <strong>market</strong>
             </a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">price guide</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">my collection</a>
-      </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">market</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link disabled" href="#">community</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="search">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">search</button>
-    </form>
-  </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">price guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">my collection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">market</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">community</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <span class="mr-2">country:</span>
+                    <select class="form-control" id="country">
+                        <option>US</option>
+                        <option>AU</option>
+                    </select>
+                    <!--
+                    <input class="form-control mr-sm-2" type="text" placeholder="search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">search</button>
+ -->
+                </form>
+               
+            </div>
+        </nav>
 
         <div class="container">
+            
             <!-- CONTENT -->
             <div class="row">
                 
                 <!-- LEFT COLUMN -->
                 <div class="col-md-4">
-                    <div class="row hidden-md-up" style="margin-bottom: -18px;">
+                    <div class="row hidden-md-up" style="margin-bottom: -12px;">
                         <nav class="breadcrumb" style="background-color: white;">
                             <a class="breadcrumb-item" href="#">home</a>
                             <a class="breadcrumb-item" href="#">price guide</a>
@@ -63,7 +71,7 @@
                         </nav>
                     </div>
                     <div class="row mt-0 mt-sm-0 mt-md-4">
-                        <div class="card mx-auto" style="width: 95%;">
+                        <div class="card mx-auto col-11 col-md-12">
                             <img class="card-img-top img-fluid" src="11310_SW_HoodedJediLuke_POP_GLAM_HiRez_large.jpg">
                             <div class="card-block">
                                 <div class="card-title">
@@ -90,8 +98,11 @@
                             <span class="breadcrumb-item active">126 luke skywalker (excl. to star wars celebration 2017)</span>
                         </nav>
                     </div>
-                    <div class="row mt-3 mt-sm-3 mt-md-0">
-                        <div class="card card-outline-success text-center mx-auto py-3" style="width: 95%;">
+                    <div class="row mt-3 mt-md-0">
+                        <div class="card card-outline-success text-center mx-auto py-3 hidden-sm-down" style="width: 95%">
+                            <h5 class="text-success mb-0">Estimated Value: $1000</h5>
+                        </div>
+                        <div class="card card-outline-success text-center mx-auto py-3 col-11 hidden-md-up">
                             <h5 class="text-success mb-0">Estimated Value: $1000</h5>
                         </div>
                     </div>
