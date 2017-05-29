@@ -250,6 +250,36 @@
                         want = false;
                         return;
                     }
+
+                    var image = $(this);
+                    var triangle = image.find(".triangle");
+                    var symbol = image.find(".symbol");
+                        
+                    if (image.hasClass("img-add")) {
+                        image[0].classList.remove("img-add");
+                        image[0].classList.add("img-own");
+
+                        triangle[0].classList.remove("triangle-add");
+                        triangle[0].classList.add("triangle-own");
+
+                        symbol.html('<i class="fa fa-check"></i>');
+                    } else if (image.hasClass("img-want")) {
+                        image[0].classList.remove("img-want");
+                        image[0].classList.add("img-add");
+
+                        triangle[0].classList.remove("triangle-want");
+                        triangle[0].classList.add("triangle-add");
+
+                        symbol.html('<i class="fa fa-plus"></i>');
+                    } else if (image.hasClass("img-own")) {
+                        image[0].classList.remove("img-own");
+                        image[0].classList.add("img-add");
+
+                        triangle[0].classList.remove("triangle-own");
+                        triangle[0].classList.add("triangle-add");
+
+                        symbol.html('<i class="fa fa-plus"></i>');
+                    }
                 }).on('touchmove', function(e) {
                     touchmoved = true;
                 }).on('touchstart mousedown', function(e) {
