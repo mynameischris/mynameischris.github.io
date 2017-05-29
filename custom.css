@@ -1,35 +1,125 @@
-.my-collection-card-img {
+/* ADD TO */
+
+.add-to .col-right .pops .col .row .img-col .img-add {
      background-size: cover; 
      padding-bottom: 100%; 
-     background-position: center center; 
+     background-position: center center;
+     box-shadow: 0px 0px 0px 1px gray inset;
+     border-top-right-radius: 10px;
+     border-bottom-left-radius: 10px;
 }
 
-.my-collection-btn-minus {
-    margin-left: .25rem;
-    margin-right: .25rem;
+.add-to .col-right .pops .col .row .img-col .img-own {
+     background-size: cover; 
+     padding-bottom: 100%; 
+     background-position: center center;
+     box-shadow: 0px 0px 0px 1px #5cb85c inset;
+     border-top-right-radius: 10px;
+     border-bottom-left-radius: 10px;
 }
 
+.add-to .col-right .pops .col .row .img-col .img-want {
+     background-size: cover; 
+     padding-bottom: 100%; 
+     background-position: center center;
+     box-shadow: 0px 0px 0px 1px #f0ad4e inset;
+     border-top-right-radius: 10px;
+     border-bottom-left-radius: 10px;
+}
+
+.triangle-add {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 32px 32px;
+    border-color: transparent transparent gray transparent;  
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.triangle-own {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 32px 32px;
+    border-color: transparent transparent #5cb85c transparent;  
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.triangle-want {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 32px 32px;
+    border-color: transparent transparent #f0ad4e transparent;  
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.row.pops .col .row .img-col .symbol-add, .row.pops .col .row .img-col .symbol-own {
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+}
+
+.row.pops .col .row .img-col .symbol-want {
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    right: 2px;
+}
+
+/* MY COLLECTION */
+
+.my-collection-img {
+     background-size: cover; 
+     padding-bottom: 100%; 
+     background-position: center center;
+     box-shadow: 0px 0px 0px 1px #5bc0de inset;
+     border-top-right-radius: 10px;
+}
+
+.my-collection-price {
+    background-color: #5bc0de;
+    color: white;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* lg and up */
+@media (min-width: 992px) {
+    .add-to .col-right .pops .col .row .img-col {
+        margin-right: -3px;
+    }
+
+    .my-collection-img-col {
+        margin-right: -3px;
+    }
+}
+
+/* sm to md */
+@media (min-width: 576px) and (max-width: 991px) {
+    .add-to .col-right .pops .col .row .img-col {
+        margin-right: -5px;
+    }
+
+    .my-collection-img-col {
+        margin-right: -5px;
+    }
+}
+
+/* sm to md */
 @media (max-width: 575px) {
-    .col-xs-card-2 {
-        margin-left: -8px;
+    .add-to .col-right .pops .col .row .img-col {
+        margin-right: -7px;
     }
 
-    .col-xs-card-3 {
-        margin-left: -8px;
-    }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199px) {
-    a.my-collection-btn-minus {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-}
-
-@media (max-width: 333px) {
-    a.my-collection-btn-minus {
-        margin-left: 0px;
-        margin-right: 0px;
+    .my-collection-img-col {
+        margin-right: -7.5px;
     }
 }
