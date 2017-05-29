@@ -240,7 +240,7 @@
             var touchmoved = false;
 
             $(document).ready(function() {
-                $(".img").on('touchend mouseup', function(e) {
+                $(".img").on('touchend', function(e) {
                     if (touchmoved) {
                         touchmoved = false;
                         return;
@@ -282,7 +282,7 @@
                     }
                 }).on('touchmove', function(e) {
                     touchmoved = true;
-                }).on('touchstart mousedown', function(e) {
+                }).on('touchstart', function() {
                     touchmoved = false;
                 });
             });
