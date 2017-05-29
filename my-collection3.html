@@ -241,7 +241,7 @@
 
             $(document).ready(function() {
                 $(".img").on('touchend mouseup', function(e) {
-                    e.preventDefault();
+                    //e.preventDefault();
 
                     clearTimeout(timer);
 
@@ -284,10 +284,12 @@
 
                         symbol.html('<i class="fa fa-plus"></i>');
                     }
-                }).on('touchmove', function() {
+                }).on('touchmove', function(e) {
                     touchmoved = true;
-                }).on('touchstart mousedown', function(e) {
                     e.preventDefault();
+                }).on('touchstart mousedown', function(e) {
+                    //e.preventDefault();
+                    touchmoved = false;
 
                     var image = $(this);
                     var triangle = image.find(".triangle");
