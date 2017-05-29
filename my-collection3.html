@@ -237,12 +237,18 @@
         <script>
             var timer;
             var want = false;
+            var touchmoved = false;
 
             $(document).ready(function() {
                 $(".img").on('touchend mouseup', function(e) {
                     e.preventDefault();
 
                     clearTimeout(timer);
+
+                    if (touchmoved) {
+                        touchmoved = false;
+                        return;
+                    }
 
                     if (want) {
                         want = false;
@@ -278,6 +284,8 @@
 
                         symbol.html('<i class="fa fa-plus"></i>');
                     }
+                }).on('touchmove', function() {
+                    touchmoved = true;
                 }).on('touchstart mousedown', function(e) {
                     e.preventDefault();
 
