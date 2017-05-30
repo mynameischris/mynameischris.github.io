@@ -240,7 +240,9 @@
             var touchmoved = false;
 
             $(document).ready(function() {
-                $(".img").on('touchend mouseup', function() {
+                $(".img").on('touchend mouseup', function(e) {
+                    e.preventDefault();
+
                     clearTimeout(timer);
 
                     if (touchmoved) {
@@ -285,6 +287,8 @@
                 }).on('touchmove', function() {
                     touchmoved = true;
                 }).on('touchstart mousedown', function() {
+                    e.preventDefault();
+                    
                     touchmoved = false;
 
                     var image = $(this);
