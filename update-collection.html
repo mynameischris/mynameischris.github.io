@@ -122,17 +122,22 @@
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">price guide</a>
+                        <a class="nav-link disabled" href="#">price guide</a>
+                    </li>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">collection tracker</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">update collection</a>
+                            <a class="dropdown-item" href="#">my collection</a>
+                            <a class="dropdown-item" href="#">my wish list</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">my collection</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">market</a>
+                        <a class="nav-link disabled" href="#">marketplace</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">community</a>
@@ -171,37 +176,17 @@
             <!-- /SEARCH -->
 
             <!-- NAV -->
-            <div class="row mb-3 mb-md-4">
+            <div class="row mb-3 mb-md-4 hidden-sm-down">
                 <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
-                    <ul class="nav nav-pills hidden-sm-down">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">update collection</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">my collection</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">my want list</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">update collection</a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills hidden-md-up">
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">pop vinyls</a>
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">pop vinyls</a>
-                            <a class="dropdown-item" href="#">pop vinyls</a>
-                            <a class="dropdown-item" href="#">pop vinyls</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">marvel</a>
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -212,7 +197,27 @@
             <div class="row add-to">
                 
                 <!-- LEFT COLUMN -->
-                <div class="col-left col-md-4">
+                <div class="col-left col-md-3">
+                    <div class="row mb-2 mb-md-4">
+                        <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
+                            <div class="row" data-toggle="collapse" href="#collapseExample">
+                                <div class="col">
+                                <span class="float-left text-primary"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <h5 class="float-left pl-2 text-primary">pop vinyl (1234)</h5>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseExample">
+                                <div class="col">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link active" href="#">disney (123)</a>
+                                        <a class="nav-link active" href="#">heroes (123)</a>
+                                        <a class="nav-link active" href="#">marvel (123)</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!--
                     <div class="row mb-3 mb-md-4">
                     </div>
@@ -221,7 +226,7 @@
                 <!-- /LEFT COLUMN -->
                 
                 <!-- RIGHT COLUMN -->
-                <div class="col-right col-md-8">
+                <div class="col-right col-md-9">
                     <div class="row">
                         <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
                             <div class="row pops">
