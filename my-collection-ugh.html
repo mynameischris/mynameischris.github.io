@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <title>Funko Pop! Market</title>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
@@ -240,8 +240,8 @@
             var touchmoved = false;
 
             $(document).ready(function() {
-                $(".img").on('touchend', function(e) {
-                    //e.preventDefault();
+                $(".img").on('touchend mouseup', function(e) {
+                    e.preventDefault();
 
                     clearTimeout(timer);
 
@@ -281,17 +281,24 @@
                     image[0].classList.add("img-add");
                     triangle[0].classList.add("triangle-add");
                     symbol.html('<i class="fa fa-plus"></i>');
-                }).on('touchmove', function() {
+                }).on('touchmove', function(e) {
                     touchmoved = true;
-                }).on('touchstart', function() {
-                    touchmoved = false;
+                }).on('touchstart mousedown', function(e) {
+                    e.preventDefault();
 
+                    touchmoved = false;
+                    
                     var image = $(this);
                     var triangle = image.find(".triangle");
                     var symbol = image.find(".symbol");
 
                     timer = setTimeout(function() {
-                        if (image.hasClass("img-add") || image.hasClass("img-own")) {
+                        if (image.hasClass("img-want")) {
+                            want = true;
+                            return false;
+                        }
+
+                        if (image.hasClass("img-add")) {
                             image[0].classList.remove("img-add");
                             triangle[0].classList.remove("triangle-add");
                         } else if (image.hasClass("img-own")) {
