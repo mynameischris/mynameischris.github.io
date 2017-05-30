@@ -240,7 +240,9 @@
             var touchmoved = false;
 
             $(document).ready(function() {
-                $(".img").on('touchend', function(e) {
+                $(".img").on('touchend mouseup', function() {
+                    clearTimeout(timer);
+
                     if (touchmoved) {
                         touchmoved = false;
                         return;
@@ -280,10 +282,36 @@
 
                         symbol.html('<i class="fa fa-plus"></i>');
                     }
-                }).on('touchmove', function(e) {
+                }).on('touchmove', function() {
                     touchmoved = true;
-                }).on('touchstart', function() {
+                }).on('touchstart mousedown', function() {
                     touchmoved = false;
+
+                    var image = $(this);
+                    var triangle = image.find(".triangle");
+                    var symbol = image.find(".symbol");
+
+                    timer = setTimeout(function() {
+                        if (image.hasClass("img-add")) {
+                        image[0].classList.remove("img-add");
+                        image[0].classList.add("img-want");
+
+                        triangle[0].classList.remove("triangle-add");
+                        triangle[0].classList.add("triangle-want");
+
+                        symbol.html('<strong>w</strong>');
+                    } else if (image.hasClass("img-own")) {
+                        image[0].classList.remove("img-own");
+                        image[0].classList.add("img-want");
+
+                        triangle[0].classList.remove("triangle-own");
+                        triangle[0].classList.add("triangle-want");
+
+                        symbol.html('<strong>w</strong>');
+                    }
+
+                        want = true;
+                    }, 600);
                 });
             });
         </script>
