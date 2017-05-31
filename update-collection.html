@@ -10,6 +10,9 @@
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="imagesloaded.pkgd.min.js"></script>
+        <script src="hammerjs/hammer.min.js"></script>
+        <script src="hammerjs/jquery.hammer.js"></script>
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="custom.css">
 
@@ -84,9 +87,16 @@
             function insertImage(link) {
                 html = "";
                 html += '<div class="img-col col-4 col-sm-3 col-lg-2 pr-0 mb-2">';
-                html += '<div class="img img-add" style="background-image: url(' + link + ');">';
-                html += '<div class="triangle triangle-add"></div>';
-                html += '<div class="symbol symbol-add"><i class="fa fa-plus"></i></div>';
+                html += '<div class="img" style="background-image: url(' + link + ');">';
+                html += '<div class="border-add">';
+                html += '<div class="triangle"></div>';
+                html += '<div class="symbol"><i class="fa fa-plus"></i></div>';
+                html += '</div>';
+                html += '<div class="loading-background">';
+                html += '<div class="loading-icon-container">';
+                html += '<i class="fa fa-spinner fa-pulse fa-3x loading-icon"></i>';
+                html += '</div>';
+                html += '</div>';
                 html += '</div>';
                 html += '</div>';
 
@@ -200,12 +210,12 @@
                 <div class="col-left col-md-3">
                     <div class="row mb-2 mb-md-4">
                         <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
-                            <a class="row" data-toggle="collapse" href="#collapseExample">
+                            <div class="row" data-toggle="collapse" href="#collapseExample">
                                 <div class="col">
                                 <span class="float-left text-primary"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                 <h5 class="float-left pl-2 text-primary">pop vinyl (1234)</h5>
                                 </div>
-                            </a>
+                            </div>
                             <div class="row collapse" id="collapseExample">
                                 <div class="col">
                                     <nav class="nav flex-column">
@@ -247,81 +257,49 @@
             <!-- /CONTENT -->
         </div>
         <script>
-            var timer;
-            var want = false;
-            var touchmoved = false;
+            $(document).ready(function () {
+                //LOADING
+                $(".img").imagesLoaded({background: true}).progress(function(imgLoad, image) {
+                    $(".col-right .img .loading-background").hide();
+                });
 
-            $(document).ready(function() {
-                $(".img").on('touchmove', function(e) {
-                    touchmoved = true;
-                }).on('touchstart mousedown', function(e) {
-                    touchmoved = false;
+                //ON TAP/PRESS
+                $(".img").hammer().on("tap press", function(e) {
+                    var border = $($(this).find("div")[0]);
+                    var symbol = $(border.find(".symbol"));
                     
-                    var image = $(this);
-                    var triangle = image.find(".triangle");
-                    var symbol = image.find(".symbol");
+                    if (e.type === "tap") {
+                        if (border.hasClass("border-add")) {
+                            border[0].classList.remove("border-add");
 
-                    timer = setTimeout(function() {
-                        if (image.hasClass("img-want")) {
-                            want = true;
+                            border[0].classList.add("border-own");
+                            symbol.html('<i class="fa fa-check"></i>');
+
+                            return false;
+                        } 
+                        
+                        if (border.hasClass("border-own")) {
+                            border[0].classList.remove("border-own");
+                        } else if (border.hasClass("border-want")) {
+                            border[0].classList.remove("border-want");
+                        }
+
+                        border[0].classList.add("border-add");
+                        symbol.html('<i class="fa fa-plus"></i>');
+                    } else if (e.type === "press") {
+                        if (border.hasClass("border-want")) {
                             return false;
                         }
 
-                        if (image.hasClass("img-add")) {
-                            image[0].classList.remove("img-add");
-                            triangle[0].classList.remove("triangle-add");
-                        } else if (image.hasClass("img-own")) {
-                            image[0].classList.remove("img-own");
-                            triangle[0].classList.remove("triangle-own");
+                        if (border.hasClass("border-add")) {
+                            border[0].classList.remove("border-add");
+                        } else if (border.hasClass("border-own")) {
+                            border[0].classList.remove("border-own");
                         }
 
-                        image[0].classList.add("img-want");
-                        triangle[0].classList.add("triangle-want");
+                        border[0].classList.add("border-want");
                         symbol.html('<strong>w</strong>');
-
-                        want = true;
-                    }, 600);
-                }).on('touchend mouseup', function(e) {
-                    e.preventDefault();
-
-                    clearTimeout(timer);
-
-                    if (touchmoved) {
-                        touchmoved = false;
-                        return false;
                     }
-
-                    if (want) {
-                        want = false;
-                        return false;
-                    }
-
-                    var image = $(this);
-                    var triangle = image.find(".triangle");
-                    var symbol = image.find(".symbol");
-                        
-                    if (image.hasClass("img-add")) {
-                        image[0].classList.remove("img-add");
-                        triangle[0].classList.remove("triangle-add");
-                        
-                        image[0].classList.add("img-own");
-                        triangle[0].classList.add("triangle-own");
-                        symbol.html('<i class="fa fa-check"></i>');
-
-                        return false;
-                    } 
-                    
-                    if (image.hasClass("img-own")) {
-                        image[0].classList.remove("img-own");
-                        triangle[0].classList.remove("triangle-own");
-                    } else if (image.hasClass("img-want")) {
-                        image[0].classList.remove("img-want");
-                        triangle[0].classList.remove("triangle-want");
-                    }
-
-                    image[0].classList.add("img-add");
-                    triangle[0].classList.add("triangle-add");
-                    symbol.html('<i class="fa fa-plus"></i>');
                 });
             });
         </script>
