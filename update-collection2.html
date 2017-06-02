@@ -10,20 +10,15 @@
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-        <script src="imagesloaded.pkgd.min.js"></script>
-        <script src="blazy.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.js"></script>
         <script src="hammerjs/hammer.min.js"></script>
         <script src="hammerjs/jquery.hammer.js"></script>
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href="custom.css">
 
         <script>
-            var cardCount = 1;
-            
-                $(document).ready(function() {
-                    var bLazy = new Blazy({
-                        
-                    });
+            $(document).ready(function() {
+                var cardCount = 1;
 	
                 insertRowTop10("#01 Thor", "0.00", "02-faces-final/01-thor.jpg");
                 insertRowTop10("#02 Loki", "0.00", "02-faces-final/02-loki.jpg");
@@ -88,12 +83,27 @@
                 insertImage("01-glams-final/34-peter-parker.jpg");
                 insertImage("01-glams-final/35-thor.jpg");
                 insertImage("01-glams-final/35-thor-bw.jpg");
+
+                
+                var bLazy = new Blazy({
+                    success: function(ele){
+                        $(ele).find(".loading-background").hide();
+                        updateCounter();
+                    }
+                });
+
+                var imagesLoaded = 0;
+
+                function updateCounter() {
+                    imagesLoaded++;
+                    console.log(imagesLoaded);
+                }
             });
             
             function insertImage(link) {
                 html = "";
                 html += '<div class="img-col col-4 col-sm-3 col-lg-2 pr-0 mb-2">';
-                html += '<div class="img b-lazy" style="background-image: url(' + link + ');">';
+                html += '<div class="img b-lazy" data-src="' + link + '">';
                 html += '<div class="border-add">';
                 html += '<div class="triangle"></div>';
                 html += '<div class="symbol"><i class="fa fa-plus"></i></div>';
@@ -275,19 +285,6 @@
         </div>
         <script>
             $(document).ready(function () {
-                //LOADING
-                $(".img").imagesLoaded({background: true}).progress(function(imgLoad, image) {
-                    var str = image.url;
-                    var n = str.lastIndexOf('/');
-                    var result = str.substring(n + 1);
-
-                    var image = $(".col-right .img").filter(function() {
-                        return $(this).css("background-image").indexOf(result) > -1; 
-                    });
-
-                    image.find(".loading-background").hide();
-                });
-
                 //ON TAP/PRESS
                 $(".img").hammer().on("tap press", function(e) {
                     var border = $($(this).find("div")[0]);
