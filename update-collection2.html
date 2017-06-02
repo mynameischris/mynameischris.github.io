@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Funko Pop! Market</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="imagesloaded.pkgd.min.js"></script>
+        <script src="blazy.min.js"></script>
+        <script src="hammerjs/hammer.min.js"></script>
+        <script src="hammerjs/jquery.hammer.js"></script>
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="custom.css">
+
+        <script>
+            var cardCount = 1;
+            
+                $(document).ready(function() {
+                    var bLazy = new Blazy({
+                        
+                    });
+	
+                insertRowTop10("#01 Thor", "0.00", "02-faces-final/01-thor.jpg");
+                insertRowTop10("#02 Loki", "0.00", "02-faces-final/02-loki.jpg");
+                insertRowTop10("#03 Spider-Man", "0.00", "02-faces-final/03-spider-man.jpg");
+                insertRowTop10("#03 Spider-Man (Black)", "0.00", "02-faces-final/03-spider-man-black.jpg");
+                insertRowTop10("#03 Spider-Man (B&W)", "0.00", "02-faces-final/03-spider-man-bw.jpg");
+                insertRowTop10("#04 Iron-Man (Blue Stealth)", "0.00", "02-faces-final/04-iron-man-blue-stealth.jpg");
+                insertRowTop10("#04 Iron-Man", "0.00", "02-faces-final/04-iron-man.jpg");
+                insertRowTop10("#05 Wolverine", "0.00", "02-faces-final/05-wolverine.jpg");
+                insertRowTop10("#05 Wolverine (Brown)", "0.00", "02-faces-final/05-wolverine-brown.jpg");
+                insertRowTop10("#05 Wolverine (B&W)", "0.00", "02-faces-final/05-wolverine-bw.jpg");
+
+                insertImage("01-glams-final/01-thor.jpg");
+                insertImage("01-glams-final/02-loki.jpg");
+                insertImage("01-glams-final/03-spider-man.jpg");
+                insertImage("01-glams-final/03-spider-man-bw.jpg");
+                insertImage("01-glams-final/03-spider-man-black.jpg");
+                insertImage("01-glams-final/04-iron-man.jpg");
+                insertImage("01-glams-final/04-iron-man-blue-stealth.jpg");
+                insertImage("01-glams-final/05-wolverine.jpg");
+                insertImage("01-glams-final/05-wolverine-brown.jpg");
+                insertImage("01-glams-final/05-wolverine-bw.jpg");
+                insertImage("01-glams-final/06-captain-america.jpg");
+                insertImage("01-glams-final/06-captain-america-bw.jpg");
+                insertImage("01-glams-final/07-red-skull.jpg");
+                insertImage("01-glams-final/08-hulk.jpg");
+                insertImage("01-glams-final/09-the-thing.jpg");
+                insertImage("01-glams-final/10-captain-america.jpg");
+                insertImage("01-glams-final/11-iron-man.jpg");
+                insertImage("01-glams-final/12-thor.jpg");
+                insertImage("01-glams-final/13-the-hulk.jpg");
+                insertImage("01-glams-final/14-nick-fury.jpg");
+                insertImage("01-glams-final/15-spider-man.jpg");
+                insertImage("01-glams-final/15-spider-man-metallic.jpg");
+                insertImage("01-glams-final/16-loki.jpg");
+                insertImage("01-glams-final/17-dr-doom.jpg");
+                insertImage("01-glams-final/17-dr-doom-metallic.jpg");
+                insertImage("01-glams-final/17-dr-doom-bw.jpg");
+                insertImage("01-glams-final/18-ghost-rider.jpg");
+                insertImage("01-glams-final/18-ghost-rider-metallic.jpg");
+                insertImage("01-glams-final/19-silver-surfer.jpg");
+                insertImage("01-glams-final/20-deadpool.jpg");
+                insertImage("01-glams-final/20-deadpool-grey.jpg");
+                insertImage("01-glams-final/20-deadpool-metallic.jpg");
+                insertImage("01-glams-final/20-deadpool-orange.jpg");
+                insertImage("01-glams-final/20-deadpool-white.jpg");
+                insertImage("01-glams-final/20-deadpool-white-gitd.jpg");
+                insertImage("01-glams-final/20-deadpool-x-men.jpg");
+                insertImage("01-glams-final/21-beast.jpg");
+                insertImage("01-glams-final/22-dark-phoenix.jpg");
+                insertImage("01-glams-final/23-iron-man.jpg");
+                insertImage("01-glams-final/24-war-machine.jpg");
+                insertImage("01-glams-final/25-iron-patriot.jpg");
+                insertImage("01-glams-final/26-deep-space-suit.jpg");
+                insertImage("01-glams-final/27-phoenix.jpg");
+                insertImage("01-glams-final/28-wolverine.jpg");
+                insertImage("01-glams-final/30-white-phoenix.jpg");
+                insertImage("01-glams-final/31-red-hulk.jpg");
+                insertImage("01-glams-final/31-red-hulk-metallic.jpg");
+                insertImage("01-glams-final/32-tony-stark.jpg");
+                insertImage("01-glams-final/33-james-rhodes.jpg");
+                insertImage("01-glams-final/34-peter-parker.jpg");
+                insertImage("01-glams-final/35-thor.jpg");
+                insertImage("01-glams-final/35-thor-bw.jpg");
+            });
+            
+            function insertImage(link) {
+                html = "";
+                html += '<div class="img-col col-4 col-sm-3 col-lg-2 pr-0 mb-2">';
+                html += '<div class="img b-lazy" style="background-image: url(' + link + ');">';
+                html += '<div class="border-add">';
+                html += '<div class="triangle"></div>';
+                html += '<div class="symbol"><i class="fa fa-plus"></i></div>';
+                html += '</div>';
+                html += '<div class="loading-background">';
+                html += '<div class="loading-icon-container">';
+                html += '<i class="fa fa-spinner fa-pulse fa-3x loading-icon"></i>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+
+                $('.col-right .row.marvel').append(html);
+            }
+
+            function insertRowTop10(name, price, link) {
+                html = "";
+                html += "<tr>";
+                html += "<td>";
+                html += '<div class="row">';
+                html += '<div class="col-3"><img class="img-fluid" src="' + link + '" style="border-radius: 50%;"></div>';
+                html += '<div class="col-9">';
+                html += '<div class="row"><a href="#">' + name + '</a></div>';
+                html += '<div class="row">$' + price + '</div>';
+                html += "</div>";
+                html += "</div>";
+                html += "</td>";
+                html += "</tr>";
+
+                $('.col-left .top-10').append(html);
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" style="outline: none;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="logo_black_white.svg" height="30" class="d-inline-block align-top" alt="">
+                <strong>market</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">price guide</a>
+                    </li>
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">collection tracker</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">update collection</a>
+                            <a class="dropdown-item" href="#">my collection</a>
+                            <a class="dropdown-item" href="#">my wish list</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">community</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <span class="mr-2">country:</span>
+                    <select class="form-control" id="country">
+                        <option>US</option>
+                        <option>AU</option>
+                    </select>
+                </form>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- SEARCH -->
+            <div class="row my-3">
+                <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
+                    <div class="d-flex justify-content-end hidden-sm-down">
+                        <form class="form-inline">
+                            <input type="text" class="form-control mr-2" id="search" placeholder="search the price guide" style="width: 220px">
+                            <button class="btn btn-outline-primary" type="submit"> 
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="input-group hidden-md-up">
+                        <input type="text" class="form-control mr-2" id="search" placeholder="search the price guide">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /SEARCH -->
+
+            <!-- NAV -->
+            <div class="row mb-2 mb-md-4">
+                <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
+                    <nav class="breadcrumb py-0 my-0 px-0 mx-0" style="float: left; background-color: white;">
+                        <a class="breadcrumb-item" href="#">home</a>
+                        <a class="breadcrumb-item" href="#">update collection</a>
+                        <a class="breadcrumb-item" href="#">pop vinyl</a>
+                        <span class="breadcrumb-item active">marvel</span>
+                    </nav>
+
+                    <!--
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">update collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">my collection</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">my want list</a>
+                        </li>
+                    </ul>
+                    -->
+                </div>
+            </div>
+            <!-- /NAV -->
+            
+            <!-- CONTENT -->
+            <div class="row add-to">
+                
+                <!-- LEFT COLUMN -->
+                <div class="col-left col-md-3">
+                    <div class="row mb-2 mb-md-4">
+                        <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
+                            <!--
+                            <div class="row" data-toggle="collapse" href="#collapseExample">
+                                <div class="col">
+                                <span class="float-left text-primary"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <h5 class="float-left pl-2 text-primary">pop vinyl (1234)</h5>
+                                </div>
+                            </div>
+                            <div class="row collapse" id="collapseExample">
+                                <div class="col">
+                                    <nav class="nav flex-column">
+                                        <a class="nav-link active" href="#">disney (123)</a>
+                                        <a class="nav-link active" href="#">heroes (123)</a>
+                                        <a class="nav-link active" href="#">marvel (123)</a>
+                                    </nav>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    
+                    <!--
+                    <div class="row mb-3 mb-md-4">
+                    </div>
+                    -->
+                </div>
+                <!-- /LEFT COLUMN -->
+                
+                <!-- RIGHT COLUMN -->
+                <div class="col-right col-md-9">
+                    <div class="row">
+                        <div class="col-11 col-md-12 mx-auto px-0 px-md-2">
+                            <div class="row pops">
+                                <div class="col">
+                                    <div class="row">
+                                        <h5 class="col">marvel</h5>
+                                    </div>
+                                    <div class="row marvel">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /RIGHT COLUMN -->
+                
+            </div>
+            <!-- /CONTENT -->
+        </div>
+        <script>
+            $(document).ready(function () {
+                //LOADING
+                $(".img").imagesLoaded({background: true}).progress(function(imgLoad, image) {
+                    var str = image.url;
+                    var n = str.lastIndexOf('/');
+                    var result = str.substring(n + 1);
+
+                    var image = $(".col-right .img").filter(function() {
+                        return $(this).css("background-image").indexOf(result) > -1; 
+                    });
+
+                    image.find(".loading-background").hide();
+                });
+
+                //ON TAP/PRESS
+                $(".img").hammer().on("tap press", function(e) {
+                    var border = $($(this).find("div")[0]);
+                    var symbol = $(border.find(".symbol"));
+                    
+                    if (e.type === "tap") {
+                        if (border.hasClass("border-add")) {
+                            border[0].classList.remove("border-add");
+
+                            border[0].classList.add("border-own");
+                            symbol.html('<i class="fa fa-check"></i>');
+
+                            return false;
+                        } 
+                        
+                        if (border.hasClass("border-own")) {
+                            border[0].classList.remove("border-own");
+                        } else if (border.hasClass("border-want")) {
+                            border[0].classList.remove("border-want");
+                        }
+
+                        border[0].classList.add("border-add");
+                        symbol.html('<i class="fa fa-plus"></i>');
+                    } else if (e.type === "press") {
+                        if (border.hasClass("border-want")) {
+                            return false;
+                        }
+
+                        if (border.hasClass("border-add")) {
+                            border[0].classList.remove("border-add");
+                        } else if (border.hasClass("border-own")) {
+                            border[0].classList.remove("border-own");
+                        }
+
+                        border[0].classList.add("border-want");
+                        symbol.html('<strong>w</strong>');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
